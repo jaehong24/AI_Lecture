@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+<!-- base.html을 상속받고 -->
+
+<!-- base.html에 있는 block content, 와 endblock content 사이에 들어간다 -->
+{% block content %}
+    <form action="/edit/{{todo.id}}" method="post">
+        <textarea name="task" rows="5">{{todo.task}}</textarea>
+        <label for="completed">마무리 여부</label>
+        <input type="checkbox" name="completed" {% if todo.completed %}checked{% endif %}>
+
+        <button type="submit">저장</button>
+    </form>
+{% endblock content %}
